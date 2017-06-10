@@ -15,6 +15,9 @@ BOT_NAME = 'scrapystudy'
 
 SPIDER_MODULES = ['scrapystudy.spiders']
 NEWSPIDER_MODULE = 'scrapystudy.spiders'
+# 同时使用图片和文件管道
+# ITEM_PIPELINES = {'douban_imgs.pipelines.DoubanImgDownloadPipeline': 300,}
+# IMAGES_STORE = r'E:\rieuse\scrapystudy\doutu'  # 图片存储路径
 UA_LIST = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1",
     "Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11",
@@ -109,7 +112,6 @@ DOWNLOAD_DELAY = 5
 #ITEM_PIPELINES = {
 #    'scrapystudy.pipelines.ScrapystudyPipeline': 300,
 #}
-
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See http://doc.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
