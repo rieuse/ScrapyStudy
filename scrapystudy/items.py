@@ -8,16 +8,16 @@ import scrapy
 import os
 import requests
 
-class ScrapystudyItem(scrapy.Item):
+
+class DoutuItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     img_url = scrapy.Field()
     name = scrapy.Field()
 
-
-class ImageloadItem(scrapy.Item):
-    img_url = scrapy.Field()
-    name = scrapy.Field()
+# class ImageloadItem(scrapy.Item):
+#     img_url = scrapy.Field()
+#     name = scrapy.Field()
 
 
 
