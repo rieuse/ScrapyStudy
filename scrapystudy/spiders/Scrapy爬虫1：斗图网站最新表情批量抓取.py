@@ -23,5 +23,5 @@ class doutu(scrapy.Spider):
                 with open(filename, 'wb') as fo:
                     fo.write(r.content)
             except:
-                print('')
+                print('Error')
             yield item
