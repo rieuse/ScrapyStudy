@@ -10,7 +10,6 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 import random
 
-
 BOT_NAME = 'scrapystudy'
 SPIDER_MODULES = ['scrapystudy.spiders']
 NEWSPIDER_MODULE = 'scrapystudy.spiders'
@@ -52,14 +51,20 @@ UA_LIST = [
     "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"
 ]
 
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'scrapystudy.middlewares.RotateUserAgentMiddleware': 400,
+}
+
 # DOWNLOADER_MIDDLEWARES = {
-#     'scraper.random_user_agent.RandomUserAgentMiddleware': 400,
 #     'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
-#  }
+#     'random_useragent.RandomUserAgentMiddleware': 400
+# }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapystudy (+http://www.yourdomain.com)'
-USER_AGENT = random.choice(UA_LIST)
+# USER_AGENT = random.choice(UA_LIST)
+# print(USER_AGENT)
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
