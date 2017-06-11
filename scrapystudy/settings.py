@@ -12,12 +12,8 @@ import random
 
 
 BOT_NAME = 'scrapystudy'
-
 SPIDER_MODULES = ['scrapystudy.spiders']
 NEWSPIDER_MODULE = 'scrapystudy.spiders'
-# 同时使用图片和文件管道
-# ITEM_PIPELINES = {'douban_imgs.pipelines.DoubanImgDownloadPipeline': 300,}
-# IMAGES_STORE = r'E:\rieuse\scrapystudy\doutu'  # 图片存储路径
 UA_LIST = [
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1",
     "Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11",
@@ -55,8 +51,11 @@ UA_LIST = [
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24",
     "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"
 ]
-# FEED_URI='/doutu.csv'
-# FEED_FORMAT='CSV'
+
+# DOWNLOADER_MIDDLEWARES = {
+#     'scraper.random_user_agent.RandomUserAgentMiddleware': 400,
+#     'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
+#  }
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'scrapystudy (+http://www.yourdomain.com)'
@@ -73,13 +72,13 @@ CONCURRENT_REQUESTS = 16
 # See http://scrapy.readthedocs.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
 # DOWNLOAD_DELAY (default: 3)
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 0.2
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
 
 # Disable cookies (enabled by default)
-#COOKIES_ENABLED = False
+COOKIES_ENABLED = False
 
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False

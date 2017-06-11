@@ -6,7 +6,7 @@ import requests
 class doutu(scrapy.Spider):
     name = "doutu"
     allowed_domains = ["doutula.com","sinaimg.cn"]
-    start_urls = ['https://www.doutula.com/photo/list/?page={}'.format(i) for i in range(20, 60)]
+    start_urls = ['https://www.doutula.com/photo/list/?page={}'.format(i) for i in range(1, 40)]
 
     def parse(self, response):
         i = 0
@@ -17,9 +17,9 @@ class doutu(scrapy.Spider):
             item['name'] = content.xpath('//p/text()').extract()[i]
             try:
                 if not os.path.exists('doutu'):
-                    os.makedirs('doutu2')
+                    os.makedirs('doutu')
                 r = requests.get(item['img_url'])
-                filename = 'doutu2\\{}'.format(item['name']) + item['img_url'][-4:]
+                filename = 'doutu\\{}'.format(item['name']) + item['img_url'][-4:]
                 with open(filename, 'wb') as fo:
                     fo.write(r.content)
             except:
