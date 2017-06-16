@@ -12,7 +12,7 @@ ITEM_PIPELINES = {'ScrapyXiMaLaYa.pipelines.ScrapyximalayaPipeline': 300, }
 MONGO_HOST = "127.0.0.1"  # 主机IP
 MONGO_PORT = 27017  # 端口号
 MONGO_DB = "XiMaLaYa"  # 库名
-MONGO_COLL = "scrapy_info"  # collection名
+MONGO_COLL = "scrapy_album"  # collection名
 
 # 下面设置随机User Agent
 DOWNLOADER_MIDDLEWARES = {

@@ -8,7 +8,7 @@ class XimalayaSpider(scrapy.Spider):
     name = "ximalaya"
     allowed_domains = ["ximalaya.com"]
     # start_urls = ['http://www.ximalaya.com/dq/all/']
-    start_urls = ['http://www.ximalaya.com/dq/all/{}'.format(num) for num in range(1, 5)]
+    start_urls = ['http://www.ximalaya.com/dq/all/{}'.format(num) for num in range(1, 85)]
 
     def parse(self, response):
         soup = BeautifulSoup(response.body, 'lxml')
