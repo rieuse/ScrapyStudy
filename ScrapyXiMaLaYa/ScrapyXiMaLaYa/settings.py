@@ -8,7 +8,7 @@ SPIDER_MODULES = ['ScrapyXiMaLaYa.spiders']
 NEWSPIDER_MODULE = 'ScrapyXiMaLaYa.spiders'
 
 # 配置mongodb
-ITEM_PIPELINES = {'ScrapyXiMaLaYa.pipelines.ScrapyximalayaPipeline': 300, }
+ITEM_PIPELINES = {'ScrapyXiMaLaYa.pipelines.ScrapyximalayaPipeline': 300, }  # pipeline文件的入口
 MONGO_HOST = "127.0.0.1"  # 主机IP
 MONGO_PORT = 27017  # 端口号
 MONGO_DB = "XiMaLaYa"  # 库名
