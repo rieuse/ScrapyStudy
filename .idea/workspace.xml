@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9252d060-0ab9-46ca-8576-eac3eed122f9" name="默认的" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Guoke/Guoke/spiders/guoke.py" afterPath="$PROJECT_DIR$/Guoke/Guoke/spiders/guoke.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScrapyXiMaLaYa/ScrapyXiMaLaYa/pipelines.py" afterPath="$PROJECT_DIR$/ScrapyXiMaLaYa/ScrapyXiMaLaYa/pipelines.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScrapyXiMaLaYa/ScrapyXiMaLaYa/settings.py" afterPath="$PROJECT_DIR$/ScrapyXiMaLaYa/ScrapyXiMaLaYa/settings.py" />
     </list>
@@ -26,8 +27,8 @@
       <file leaf-file-name="guoke.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Guoke/Guoke/spiders/guoke.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+            <state relative-caret-position="650">
+              <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
               <folding>
                 <element signature="e#24#37#0" expanded="true" />
                 <element signature="e#259#1140#0" expanded="false" />
@@ -466,6 +467,14 @@
       <option name="presentableId" value="Default" />
       <updated>1496896974737</updated>
     </task>
+    <task id="LOCAL-00001" summary="果壳网爬取热门回答">
+      <created>1497916535372</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1497916535372</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -509,6 +518,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="果壳网爬取热门回答" />
+    <option name="LAST_COMMIT_MESSAGE" value="果壳网爬取热门回答" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -805,8 +818,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Guoke/Guoke/spiders/guoke.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+        <state relative-caret-position="650">
+          <caret line="40" column="18" lean-forward="true" selection-start-line="40" selection-start-column="18" selection-end-line="40" selection-end-column="18" />
           <folding>
             <element signature="e#24#37#0" expanded="true" />
             <element signature="e#259#1140#0" expanded="false" />
