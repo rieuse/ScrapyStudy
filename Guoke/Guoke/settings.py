@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-
-
 BOT_NAME = 'Guoke'
 SPIDER_MODULES = ['Guoke.spiders']
 NEWSPIDER_MODULE = 'Guoke.spiders'
