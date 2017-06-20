@@ -6,10 +6,21 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import json
 
+import pymongo
+from scrapy.conf import settings
+
 
 class GuokePipeline(object):
+    def __init__(self):
+        self.client = pymongo.MongoClient(host=settings['MONGO_HOST'], port=settings['MONGO_PORT'])
+        self.db = self.client[settings['MONGO_DB']]
+        self.post = self.db[settings['MONGO_COLL']]
+
     def process_item(self, item, spider):
+        postItem = dict(item)
+        self.post.insert(postItem)
         return item
+
 
 
 class JsonWriterPipeline(object):

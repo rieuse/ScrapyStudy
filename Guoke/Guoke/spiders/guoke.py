@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from Guoke.items import GuokeItem
-from scrapy import Request
 
 
 class GuokeSpider(scrapy.Spider):
     name = "guoke"
     allowed_domains = ["guokr.com"]
-    start_urls = ['http://www.guokr.com/ask/hottest/']
+    start_urls = ['http://www.guokr.com/ask/hottest/?page={}'.format(n) for n in range(1, 2)]
     headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Encoding': 'gzip, deflate, sdch',
@@ -26,20 +25,9 @@ class GuokeSpider(scrapy.Spider):
         i = 0
         for content in response.xpath('/html/body/div[3]/div[1]/ul[2]/li'):
             item['title'] = content.xpath('//div[2]/h2/a/text()').extract()[i]
-            item['Focus'] = content.xpath('//div[1]/p[1]/span/text()').extract()[i]
+            item['Focus'] = content.xpath('//div[@class="ask-hot-nums"]/p[1]/span/text()').extract()[i]
             item['answer'] = content.xpath('//div[1]/p[2]/span/text()').extract()[i]
             item['link'] = content.xpath('//div[2]/h2/a/@href').extract()[i]
+            item['content'] = content.xpath('//div[2]/p/text()').extract()[i]
             i += 1
-            yield Request(item['link'], headers=self.headers, callback=self.parser_detail)
-            yield item
-
-
-    def parser_detail(self, response):
-        item = GuokeItem()
-        pa = []
-        answer = response.xpath('//*[@id="answers"]/div[2]/div[2]/div[3]/p/text()')
-        if answer:
-            for i in answer:
-                pa.append(i.extract())
-            item['content'] = "".join(pa)
             yield item
