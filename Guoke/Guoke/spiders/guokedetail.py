@@ -5,9 +5,12 @@ from scrapy import Request
 
 
 class GuokeSpider(scrapy.Spider):
-    name = "guoke3"
+    name = "guokedetail"
     allowed_domains = ["guokr.com"]
-    start_urls = ['http://www.guokr.com/ask/hottest/']
+    # start_urls = ['http://www.guokr.com/ask/hottest/']
+    start_urls = ['http://www.guokr.com/ask/hottest/?page={}'.format(n) for n in range(1, 8)] + [
+        'http://www.guokr.com/ask/highlight/?page={}'.format(m) for m in range(1, 101)]
+
     headers = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Encoding': 'gzip, deflate, sdch',
@@ -22,20 +25,25 @@ class GuokeSpider(scrapy.Spider):
     }
 
     def parse(self, response):
-        item = GuokeItem()
+        items = {}
         i = 0
         for content in response.xpath('/html/body/div[3]/div[1]/ul[2]/li'):
-            item['title'] = content.xpath('//div[2]/h2/a/text()').extract()[i]
-            # item['Focus'] = content.xpath('//div[1]/p[1]/span/text()').extract()[i]
-            # item['answer'] = content.xpath('//div[1]/p[2]/span/text()').extract()[i]
-            item['link'] = content.xpath('//div[2]/h2/a/@href').extract()[i]
+            items['title'] = content.xpath('//div[2]/h2/a/text()').extract()[i]
+            items['Focus'] = content.xpath('//div[@class="ask-hot-nums"]/p[1]/span/text()').extract()[i]
+            items['answer'] = content.xpath('//div[1]/p[2]/span/text()').extract()[i]
+            items['link'] = content.xpath('//div[2]/h2/a/@href').extract()[i]
             i += 1
-            yield Request(item['link'], headers=self.headers, callback=self.parser_detail)
-
-            yield item
+            yield Request(items['link'], meta={'title': items['title'], 'link': items['link'], 'Focus': items['Focus'],
+                                               'answer': items['answer']}, headers=self.headers,
+                          callback=self.parser_detail)
+            # yield item
 
     def parser_detail(self, response):
         item = GuokeItem()
+        item['title'] = response.meta['title']
+        item['Focus'] = response.meta['Focus']
+        item['answer'] = response.meta['answer']
+        item['link'] = response.meta['link']
         pa = []
         answer = response.xpath('//*[@id="answers"]/div[2]/div[2]/div[3]/p/text()')
         for i in answer:

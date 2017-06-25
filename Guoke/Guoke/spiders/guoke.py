@@ -6,8 +6,10 @@ from Guoke.items import GuokeItem
 class GuokeSpider(scrapy.Spider):
     name = "guoke"
     allowed_domains = ["guokr.com"]
-    start_urls = ['http://www.guokr.com/ask/hottest/?page={}'.format(n) for n in range(1, 8)] + [
-        'http://www.guokr.com/ask/highlight/?page={}'.format(m) for m in range(1, 101)]
+    start_urls = ['http://www.guokr.com/ask/hottest/']
+
+    # start_urls = ['http://www.guokr.com/ask/hottest/?page={}'.format(n) for n in range(1, 8)] + [
+    #     'http://www.guokr.com/ask/highlight/?page={}'.format(m) for m in range(1, 101)]
 
     def parse(self, response):
         item = GuokeItem()
