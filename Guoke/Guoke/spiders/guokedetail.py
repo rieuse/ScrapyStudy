@@ -36,7 +36,6 @@ class GuokeSpider(scrapy.Spider):
             yield Request(items['link'], meta={'title': items['title'], 'link': items['link'], 'Focus': items['Focus'],
                                                'answer': items['answer']}, headers=self.headers,
                           callback=self.parser_detail)
-            # yield item
 
     def parser_detail(self, response):
         item = GuokeItem()
