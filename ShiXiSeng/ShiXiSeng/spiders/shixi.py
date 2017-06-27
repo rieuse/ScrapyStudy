@@ -23,7 +23,6 @@ class ShixiSpider(scrapy.Spider):
         links = response.xpath('//div[@class="po-name"]/div[1]/a/@href').extract()
         for link in links:
             dlink = 'http://www.shixiseng.com' + link
-            print(dlink)
             yield Request(dlink, meta={'link': dlink}, headers=self.headers, callback=self.parser_detail)
 
     def parser_detail(self, response):
@@ -32,11 +31,13 @@ class ShixiSpider(scrapy.Spider):
         item['link'] = response.meta['link']
         item['company'] = response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/p[1]/a/text()').extract_first()
         item['place'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[2]/@title').extract_first()
+        item['education'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[3]/text()').re_first(
+            r'[\u4e00-\u9fa5]{2}')
         item['people'] = response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/p[2]/span/text()').extract_first()
-        item['money'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[1]/text()').extract_first()
+        item['money'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[1]/text()').re_first(r'[^\s]+')
         item['week'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[4]/text()').extract_first()
         item['month'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[5]/text()').extract_first()
         item['lure'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/p/text()').extract_first()
-        item['description'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[3]/text()').extract_first()
-        item['data'] = response.xpath('//*[@id="container"]/div[1]/div[1]/p[3]/text()').extract_first()
+        item['description'] = response.xpath('//div[@class="dec_content"]/text()').extract()
+        item['data'] = response.xpath('//*[@id="container"]/div[1]/div[1]/p[3]/text()').extract()
         yield item

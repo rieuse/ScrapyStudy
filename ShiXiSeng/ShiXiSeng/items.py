@@ -14,6 +14,7 @@ class ShixisengItem(scrapy.Item):
     company = scrapy.Field()
     people = scrapy.Field()
     place = scrapy.Field()
+    education = scrapy.Field()
     money = scrapy.Field()
     week = scrapy.Field()
     month = scrapy.Field()
