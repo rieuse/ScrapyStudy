@@ -19,5 +19,5 @@ ROBOTSTXT_OBEY = False
 COOKIES_ENABLED = False
 ITEM_PIPELINES = {
     'ShiXiSeng.pipelines.JsonWriterPipeline': 300,
-    'ShiXiSeng.pipelines.ShiXiSengPipeline': 300,
+    'ShiXiSeng.pipelines.ShixisengPipeline': 300,
 }

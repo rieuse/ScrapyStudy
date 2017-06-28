@@ -15,6 +15,7 @@ class ShixisengPipeline(object):
         self.post.insert(postItem)
         return item
 
+
 class JsonWriterPipeline(object):
     def __init__(self):
         self.file = open('shixiseng.json', 'w', encoding='utf-8')
