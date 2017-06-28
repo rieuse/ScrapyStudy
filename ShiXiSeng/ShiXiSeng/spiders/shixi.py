@@ -32,7 +32,7 @@ class ShixiSpider(scrapy.Spider):
         item['company'] = response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/p[1]/a/text()').extract_first()
         item['place'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[2]/@title').extract_first()
         item['education'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[3]/text()').re_first(
-            r'[\u4e00-\u9fa5]{2}')
+            r'[\u4e00-\u9fa5]+')
         item['people'] = response.xpath('//*[@id="container"]/div[1]/div[2]/div[1]/p[2]/span/text()').extract()[1]
         item['money'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[1]/text()').re_first(r'[^\s]+')
         item['week'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[4]/text()').extract_first()
