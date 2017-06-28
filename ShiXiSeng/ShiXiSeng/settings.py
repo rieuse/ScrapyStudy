@@ -1,18 +1,14 @@
 # -*- coding: utf-8 -*-
-
-# Scrapy settings for ShiXiSeng project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     http://doc.scrapy.org/en/latest/topics/settings.html
-#     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
-#     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-
 BOT_NAME = 'ShiXiSeng'
 
 SPIDER_MODULES = ['ShiXiSeng.spiders']
 NEWSPIDER_MODULE = 'ShiXiSeng.spiders'
+
+# 配置mongodb
+MONGO_HOST = "127.0.0.1"  # 主机IP
+MONGO_PORT = 27017  # 端口号
+MONGO_DB = "Shixiseng"  # 库名
+MONGO_COLL = "info"  # collection
 
 DOWNLOADER_MIDDLEWARES = {
     'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
@@ -23,5 +19,5 @@ ROBOTSTXT_OBEY = False
 COOKIES_ENABLED = False
 ITEM_PIPELINES = {
     'ShiXiSeng.pipelines.JsonWriterPipeline': 300,
-    # 'ShiXiSeng.pipelines.ShiXiSengPipeline': 300,
+    'ShiXiSeng.pipelines.ShiXiSengPipeline': 300,
 }
