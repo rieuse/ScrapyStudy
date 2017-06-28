@@ -38,6 +38,7 @@ class ShixiSpider(scrapy.Spider):
         item['week'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[4]/text()').extract_first()
         item['month'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/span[5]/text()').extract_first()
         item['lure'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/p/text()').extract_first()
-        item['description'] = response.xpath('//div[@class="dec_content"]/text()').extract()
+        item['description'] = response.xpath(
+            '//div[@class="dec_content"]/*/text()|//div[@class="dec_content"]/text()').extract()
         item['data'] = response.xpath('//*[@id="container"]/div[1]/div[1]/p[3]/text()').extract()
         yield item
