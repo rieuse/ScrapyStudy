@@ -7,7 +7,7 @@ from scrapy import Request
 class ShixiSpider(scrapy.Spider):
     name = "shixi"
     allowed_domains = ["shixiseng.com"]
-    start_urls = ['http://www.shixiseng.com/interns?t=zj&p={}'.format(n) for n in range(1, 3)]
+    start_urls = ['http://www.shixiseng.com/interns?t=zj&p={}'.format(n) for n in range(1, 501)]
     headers = {
         'Host': 'www.shixiseng.com',
         'Connection': 'keep-alive',
@@ -40,5 +40,5 @@ class ShixiSpider(scrapy.Spider):
         item['lure'] = response.xpath('//*[@id="container"]/div[1]/div[1]/div[2]/p/text()').extract_first()
         item['description'] = response.xpath(
             '//div[@class="dec_content"]/*/text()|//div[@class="dec_content"]/text()').extract()
-        item['data'] = response.xpath('//*[@id="container"]/div[1]/div[1]/p[3]/text()').extract()
+        item['data'] = response.xpath('//*[@id="container"]/div[1]/div[1]/p[3]/text()').extract()[0]
         yield item
