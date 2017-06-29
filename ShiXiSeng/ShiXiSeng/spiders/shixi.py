@@ -7,7 +7,7 @@ from scrapy import Request
 class ShixiSpider(scrapy.Spider):
     name = "shixi"
     allowed_domains = ["shixiseng.com"]
-    start_urls = ['http://www.shixiseng.com/interns?t=zj&p={}'.format(n) for n in range(1, 501)]
+    start_urls = ['http://www.shixiseng.com/interns?t=zj&p={}'.format(n) for n in range(1, 3)]
     headers = {
         'Host': 'www.shixiseng.com',
         'Connection': 'keep-alive',

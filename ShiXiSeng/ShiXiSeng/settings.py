@@ -15,8 +15,8 @@ DOWNLOADER_MIDDLEWARES = {
     'ShiXiSeng.middlewares.RotateUserAgentMiddleware': 400,
 }
 
-ROBOTSTXT_OBEY = False
-COOKIES_ENABLED = False
+ROBOTSTXT_OBEY = False  # 不遵循robotstxt规定
+COOKIES_ENABLED = False  # 关闭cookies，这样每次抓取数据都可以分配不同的cookies
 ITEM_PIPELINES = {
     'ShiXiSeng.pipelines.JsonWriterPipeline': 300,
     'ShiXiSeng.pipelines.ShixisengPipeline': 300,
