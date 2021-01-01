@@ -5,7 +5,6 @@
 * 3.**[Guoke](https://github.com/rieuse/ScrapyStudy/tree/master/Guoke)**：果壳网爬取热门回答，保存到mongodb数据库中和json本地文件。
 * 4.**[ShiXiSeng](https://github.com/rieuse/ScrapyStudy/tree/master/ShiXiSeng)**：抓取实习僧全部实习招聘信息，保存到mongodb数据库中和json本地文件。
 
-#### 我的简书地址：**http://www.jianshu.com/u/28fbebb6ac57**
-#### 我的博客地址：**http://bulolo.cn**
-#### 我的微信账号：**rieuse**
-
+#### 微信帐号：**rieuse 欢迎添加微信一起交流学习~**
+#### 微信公众号：**梅花鹿数据**
+#### 博客地址：**http://rieuse.com**
